@@ -1,10 +1,6 @@
 
 # 🤖 PDF Insights: An Intelligent Conversational RAG Assistant
 
-<p align="center">
-  <img src="screenshot.png" alt="Streamlit App Screenshot" width="800"/>
-</p>
-
 A conversational AI assistant powered by **LangChain + Groq + Chroma** that intelligently answers questions about your **uploaded PDFs** using Retrieval Augmented Generation (RAG).  
 Built with **Streamlit** for a seamless, chat-like user interface.
 
