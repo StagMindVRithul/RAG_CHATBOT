@@ -31,7 +31,7 @@ Built with **Streamlit** for a seamless, chat-like user interface.
 ## 📸 Demo Screenshot
 
 <p align="center">
-  <img src="screenshot.png" alt="Conversational RAG Chatbot Screenshot" width="800"/>
+  <img src="Sample.png" alt="Conversational RAG Chatbot Screenshot" width="800"/>
 </p>
 
 ---
