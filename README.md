@@ -40,8 +40,8 @@ Built with **Streamlit** for a seamless, chat-like user interface.
 
 ### 1️⃣ Clone the Repository
 ```bash
-git clone https://github.com/yourusername/conversational-rag-chatbot.git
-cd conversational-rag-chatbot
+git clone https://github.com/StagMindVRithul/RAG_CHATBOT.git
+cd RAG_CHATBOT
 ```
 
 ### 2️⃣ Install Requirements
@@ -52,8 +52,6 @@ pip install -r requirements.txt
 ```
 
 > ✅ Make sure to install versions compatible with LangChain & Chroma:
-> - `langchain==0.1.14`
-> - `chromadb==0.4.24`
 
 ### 3️⃣ Configure `.env` file
 
@@ -95,7 +93,7 @@ streamlit run app.py
 ├── requirements.txt
 ├── .env                  # API keys (HF_TOKEN)
 ├── chroma_db/            # Persisted vector database
-├── screenshot.png        # App screenshot
+├── Sample.png        # App screenshot
 └── README.md
 ```
 
