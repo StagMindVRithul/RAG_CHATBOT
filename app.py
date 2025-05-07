@@ -13,17 +13,17 @@ from langchain_community.document_loaders import PyPDFLoader
 from langchain_core.runnables.history import RunnableWithMessageHistory
 from dotenv import load_dotenv
 
-# Load API keys
+# Loading API keys
 load_dotenv()
 os.environ["HF_TOKEN"] = os.getenv("HF_TOKEN")
 
-# Initialize Embeddings
+# Initializing the Embeddings
 embeddings = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2")
 
-# Streamlit Config
+
 st.set_page_config(page_title="🤖 AI PDF Assistant", page_icon="📚", layout="wide")
 
-# Sidebar: API Key & PDF Upload
+
 st.sidebar.title("🔑 API Key & Docs")
 api_key = st.sidebar.text_input("Enter Groq API Key", type="password")
 session_id = st.sidebar.text_input("Session ID", value="default")
@@ -34,11 +34,11 @@ def clear_chat():
 
 st.sidebar.button("🧹 Clear Chat Memory", on_click=clear_chat)
 
-# PDF Upload
+
 st.sidebar.markdown("## 📂 Upload your PDFs")
 upload_files = st.sidebar.file_uploader("Select PDFs", type=["pdf"], accept_multiple_files=True)
 
-# Session Storage
+# Session Storage Setup
 if "store" not in st.session_state:
     st.session_state.store = {}
 
@@ -48,18 +48,18 @@ if "retriever" not in st.session_state:
 if "conversational_chain" not in st.session_state:
     st.session_state.conversational_chain = None
 
-# Main Title
+
 st.title("🤖 Conversational RAG Chatbot")
 st.markdown("Ask me anything about your uploaded PDFs! 📝")
 
-# API Key Check
+
 if not api_key:
     st.warning("🔐 Please provide your Groq API Key in the sidebar.")
     st.stop()
 
 llm = ChatGroq(groq_api_key=api_key, model="Gemma2-9b-It")
 
-# PDF Processing
+
 if upload_files and not st.session_state.retriever:
     with st.spinner("📥 Processing uploaded PDFs..."):
         documents = []
@@ -79,7 +79,7 @@ if upload_files and not st.session_state.retriever:
 
     st.success("✅ PDFs processed and embedded!")
 
-# Setup Chain Only After Retriever
+
 if st.session_state.retriever and not st.session_state.conversational_chain:
     # Prompts
     contextualize_q_prompt = ChatPromptTemplate.from_messages([
@@ -120,16 +120,16 @@ if st.session_state.retriever and not st.session_state.conversational_chain:
 
     st.session_state.conversational_chain = conversational_chain
 
-# Chat Interface
+
 if st.session_state.conversational_chain:
     session_history = st.session_state.store.get(session_id, ChatMessageHistory())
 
-    # Display Chat History as Bubbles
+    
     for msg in session_history.messages:
         with st.chat_message("user" if msg.type == "human" else "assistant"):
             st.markdown(msg.content)
 
-    # User Input
+    
     user_prompt = st.chat_input("Type your question about the PDFs…")
 
     if user_prompt:
