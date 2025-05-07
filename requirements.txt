@@ -1,0 +1,17 @@
+langchain
+ipywidgets
+ipykernel
+python-dotenv
+langchain_community
+pypdf
+pymupdf
+langchain-text-splitters
+langchain_huggingface
+faiss-cpu
+langchain_ollama
+langchain_chroma
+streamlit 
+langchain_groq
+langserve
+huggingface_hub
+PyPDF2
